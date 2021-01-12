@@ -2,6 +2,7 @@ public class Radix{
 
   public static int nth(int n, int col){
     //Math.pow
+    return 0;
   }
 
   public static int length(int n){
@@ -13,7 +14,7 @@ public class Radix{
       digit = digit + 1;
       n = n / 10;
     }
-    return digit;
+    return digit + 1;
   }
 
   public static void merge(MyLinkedList original, MyLinkedList[] buckets){
