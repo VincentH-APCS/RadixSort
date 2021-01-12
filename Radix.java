@@ -6,15 +6,13 @@ public class Radix{
   }
 
   public static int length(int n){
-    /* if(n < 0){
+     if(n < 0){
       n = n * -1;
     }
-    int digit = 0;
-    while(n >= 10){
-      digit = digit + 1;
-      n = n / 10;
-    }
-    return digit + 1; */
+    if(n == 0){
+      return 1;
+    } else
+    return (int)Math.log10(n) + 1;
   }
 
   public static void merge(MyLinkedList original, MyLinkedList[] buckets){
