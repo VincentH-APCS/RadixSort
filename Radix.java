@@ -1,10 +1,13 @@
 public class Radix{
 
   public static int nth(int n, int col){
-
+    //Math.pow
   }
 
   public static int length(int n){
+    if(n < 0){
+      n = n * -1;
+    }
     int digit = 0;
     while(n >= 10){
       digit = digit + 1;
