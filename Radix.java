@@ -68,6 +68,7 @@ public class Radix{
     int longest = 0;
     int thing = 0;
     int numba = 0;
+    int max = 0;
     SortableLinkedList Deletion = new SortableLinkedList();
     for(int i = 0; i < data.size(); i++){
       numba = data.get(i);
@@ -86,8 +87,8 @@ public class Radix{
       merge(Negatives, Bucket);
       for(int j = 0; j < Negatives.size(); j++){
         numba = Negatives.get(j);
-        thing = nth(numba, longest - i);
-        Bucket[thing].add(numba);
+        thing = nth(numba,i);
+        Bucket[9 - thing].add(numba);
       }
       Deletion.extend(Negatives);
     }
@@ -104,7 +105,8 @@ public class Radix{
       Deletion.extend(data);
     }
     merge(data, Bucket);
-    Negatives.extend(Data);
+    Negatives.extend(data);
+    data.extend(Negatives);
   }
 
 }
