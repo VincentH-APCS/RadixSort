@@ -39,6 +39,7 @@ public class Radix{
     int longest = 0;
     int thing = 0;
     int numba = 0;
+    SortableLinkedList Deletion = new SortableLinkedList();
     for(int i = 0; i < data.size(); i++){
       numba = data.get(i);
       if(length(numba) > longest){
@@ -46,15 +47,15 @@ public class Radix{
       }
     }
     for(int i = 0; i < longest; i++){
-      merge(data, Bucket);
-      numba = data.get(i);
+      //merge(data, Bucket);
       for(int j = 0; j < data.size(); j++){
+        numba = data.get(i);
         thing = nth(numba, i);
         Bucket[thing].add(numba);
       }
+      Deletion.extend(data);
     }
-
-
+    merge(data, Bucket);
   }
 
 }
