@@ -1,8 +1,13 @@
 public class Radix{
 
   public static int nth(int n, int col){
-    //Math.pow
-    return 0;
+    int p = 0;
+    if(n < 0){
+      n = n * - 1;
+    }
+    p = (int)(n % Math.pow(10, col + 1));
+    p = (int)(p / Math.pow(10, col));
+    return p;
   }
 
   public static int length(int n){
