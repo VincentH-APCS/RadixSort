@@ -39,15 +39,15 @@ public class Radix{
     int longest = 0;
     int = thing = 0;
     for(int i = 0; i < data.length; i++){
-      if(length(data[i] > longest){
+      if(length(data.get(i) > longest){
         longest = length(data.get(i));
       }
     }
     for(int i = 0; i < longest; i++){
       merge(data, Bucket);
       for(int j = 0; j < data.length; j++){
-        thing = nth(data[i], i);
-        Bucket[thing].add(data[i]);
+        thing = nth(data.get(i), i);
+        Bucket[thing].add(data.get(i));
       }
     }
 
