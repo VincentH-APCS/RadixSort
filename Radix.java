@@ -57,5 +57,54 @@ public class Radix{
     }
     merge(data, Bucket);
   }
+  public static void radixSort(SortableLinkedList data){
+    SortableLinkedList Zeroes = new SortableLinkedList(); SortableLinkedList Ones = new SortableLinkedList();
+    SortableLinkedList Twos = new SortableLinkedList();  SortableLinkedList Threes = new SortableLinkedList();
+    SortableLinkedList Fours = new SortableLinkedList(); SortableLinkedList Fives = new SortableLinkedList();
+    SortableLinkedList Sixes = new SortableLinkedList(); SortableLinkedList Sevens = new SortableLinkedList();
+    SortableLinkedList Eights = new SortableLinkedList(); SortableLinkedList Nines = new SortableLinkedList();
+    SortableLinkedList[] Bucket = {Zeroes, Ones, Twos, Threes, Fours, Fives, Sixes, Sevens, Eights, Nines};
+    SortableLinkedList Negatives = new SortableLinkedList();
+    int longest = 0;
+    int thing = 0;
+    int numba = 0;
+    SortableLinkedList Deletion = new SortableLinkedList();
+    for(int i = 0; i < data.size(); i++){
+      numba = data.get(i);
+      if(length(numba) > longest){
+        longest = length(data.get(i));
+      }
+    }
+    for(int n = 0; n < data.size(); n++){
+      if(data.get(n) < 0){
+        Negatives.add(data.get(n));
+        data.remove(n);
+        n = n - 1;
+      }
+    }
+    for(int i = 0; i < longest; i++){
+      merge(Negatives, Bucket);
+      for(int j = 0; j < Negatives.size(); j++){
+        numba = Negatives.get(j);
+        thing = nth(numba, longest - i);
+        Bucket[thing].add(numba);
+      }
+      Deletion.extend(Negatives);
+    }
+    merge(Negatives, Bucket);
+
+
+    for(int i = 0; i < longest; i++){
+      merge(data, Bucket);
+      for(int j = 0; j < data.size(); j++){
+        numba = data.get(j);
+        thing = nth(numba, i);
+        Bucket[thing].add(numba);
+      }
+      Deletion.extend(data);
+    }
+    merge(data, Bucket);
+    Negatives.extend(Data);
+  }
 
 }
