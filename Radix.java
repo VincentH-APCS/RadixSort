@@ -37,17 +37,20 @@ public class Radix{
     SortableLinkedList Eights = new SortableLinkedList(); SortableLinkedList Nines = new SortableLinkedList();
     SortableLinkedList[] Bucket = {Zeroes, Ones, Twos, Threes, Fours, Fives, Sixes, Sevens, Eights, Nines};
     int longest = 0;
-    int = thing = 0;
-    for(int i = 0; i < data.length; i++){
-      if(length(data.get(i) > longest){
+    int thing = 0;
+    int numba = 0;
+    for(int i = 0; i < data.size(); i++){
+      numba = data.get(i);
+      if(length(numba) > longest){
         longest = length(data.get(i));
       }
     }
     for(int i = 0; i < longest; i++){
       merge(data, Bucket);
-      for(int j = 0; j < data.length; j++){
-        thing = nth(data.get(i), i);
-        Bucket[thing].add(data.get(i));
+      numba = data.get(i);
+      for(int j = 0; j < data.size(); j++){
+        thing = nth(numba, i);
+        Bucket[thing].add(numba);
       }
     }
 
