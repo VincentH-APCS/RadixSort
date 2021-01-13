@@ -47,9 +47,9 @@ public class Radix{
       }
     }
     for(int i = 0; i < longest; i++){
-      //merge(data, Bucket);
+      merge(data, Bucket);
       for(int j = 0; j < data.size(); j++){
-        numba = data.get(i);
+        numba = data.get(j);
         thing = nth(numba, i);
         Bucket[thing].add(numba);
       }
