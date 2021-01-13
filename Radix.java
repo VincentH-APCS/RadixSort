@@ -25,9 +25,16 @@ public class Radix{
       original.extend(buckets[i]);
     }*/
   public static void merge(SortableLinkedList original, SortableLinkedList[] buckets){
-      for(int i = 0; i < buckets.length; i++){
-        original.extend(buckets[i]);
-      }
+      original.extend(buckets[0]);
+      original.extend(buckets[1]);
+      original.extend(buckets[2]);
+      original.extend(buckets[3]);
+      original.extend(buckets[4]);
+      original.extend(buckets[5]);
+      original.extend(buckets[6]);
+      original.extend(buckets[7]);
+      original.extend(buckets[8]);
+      original.extend(buckets[9]);
   }
   public static void radixSortSimple(SortableLinkedList data){
     SortableLinkedList Zeroes = new SortableLinkedList(); SortableLinkedList Ones = new SortableLinkedList();
@@ -42,10 +49,11 @@ public class Radix{
     SortableLinkedList Deletion = new SortableLinkedList();
     for(int i = 0; i < data.size(); i++){
       numba = data.get(i);
-      if(length(numba) > longest){
-        longest = length(data.get(i));
+      if(numba > longest){
+        longest = numba;
       }
     }
+    longest = length(numba);
     for(int i = 0; i < longest; i++){
       merge(data, Bucket);
       for(int j = 0; j < data.size(); j++){
@@ -68,17 +76,18 @@ public class Radix{
     int longest = 0;
     int thing = 0;
     int numba = 0;
-    int max = 0;
+
     SortableLinkedList Deletion = new SortableLinkedList();
     for(int i = 0; i < data.size(); i++){
       numba = data.get(i);
       if(length(numba) > longest){
-        longest = length(data.get(i));
+        longest = length(numba);
       }
     }
     for(int n = 0; n < data.size(); n++){
-      if(data.get(n) < 0){
-        Negatives.add(data.get(n));
+      numba = data.get(n);
+      if(numba < 0){
+        Negatives.add(numba);
         data.remove(n);
         n = n - 1;
       }
