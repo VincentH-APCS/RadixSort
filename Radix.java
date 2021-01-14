@@ -72,6 +72,7 @@ public class Radix{
       Deletion.extend(data);
     }
     merge(data, Bucket);
+
   }
   public static void radixSort(SortableLinkedList data){
     SortableLinkedList Zeroes = new SortableLinkedList(); SortableLinkedList Ones = new SortableLinkedList();
@@ -86,6 +87,7 @@ public class Radix{
     int numba = 0;
 
     SortableLinkedList Deletion = new SortableLinkedList();
+    SortableLinkedList Pastebin = new SortableLinkedList();
     while(data.size() > 0){
       numba = data.remove(0);
       if(longest < length(numba)){
@@ -94,7 +96,7 @@ public class Radix{
       thing = nth(numba, 0);
       Bucket[thing].add(numba);
     }
-    for(int n = 0; n < data.size(); n++){
+  /*  for(int n = 0; n < data.size(); n++){
       numba = data.get(n);
       if(numba < 0){
         Negatives.add(numba);
@@ -102,7 +104,7 @@ public class Radix{
         n = n - 1;
       }
     }
-    for(int i = 0; i < longest; i++){
+   for(int i = 0; i < longest; i++){
       merge(Negatives, Bucket);
       for(int j = 0; j < Negatives.size(); j++){
         numba = Negatives.get(j);
@@ -112,7 +114,7 @@ public class Radix{
       Deletion.extend(Negatives);
     }
     merge(Negatives, Bucket);
-
+*/
 
     for(int i = 1; i < longest; i++){
       merge(data, Bucket);
@@ -123,9 +125,16 @@ public class Radix{
       }
       Deletion.extend(data);
     }
-
     merge(data, Bucket);
-    Negatives.extend(data);
+    while(data.size() > 0){
+      numba = data.remove(0);
+      if(numba < 0){
+        Negatives.add(0, numba);
+      }
+      else Pastebin.add(numba);
+    }
+
+    Negatives.extend(Pastebin);
     data.extend(Negatives);
   }
 
